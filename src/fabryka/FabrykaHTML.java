@@ -4,20 +4,20 @@ import java.util.Random;
 
 public class FabrykaHTML {
     
-    private static enum Type {
+    private static enum Typ {
         ZDJECIA,
         INFORMACJE,
         KONTAKT,
         AKTUALNOSCI
     }
     
-    private static Type getLosowyTyp() {
-        Typ[] array = Type.values(0);
+    private static Typ getLosowyTyp() {
+        Typ[] array = Typ.values();
         return array[new Random().nextInt(array.length)];
     }
     
-    public static Page stworzStrone() {
-        Typ typ = getRandomTyp();
+    public static Strona stworzStrone() {
+        Typ typ = getLosowyTyp();
         
         switch(typ) {
             case ZDJECIA:
@@ -29,7 +29,7 @@ public class FabrykaHTML {
             case KONTAKT:
                 System.out.println("Kontakt");
                 return new StronaKontakt();
-            case WIADOMOSCI:
+            case AKTUALNOSCI:
                 System.out.println("Aktualnosci");
                 return new StronaAktualnosci();                
         }
